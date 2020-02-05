@@ -31,7 +31,7 @@ export default class Recorder extends Emitter {
             const type = blob.type;
             const videoBlob = new Blob([blob], {type: type});
             const blobUrl = window.URL.createObjectURL(videoBlob);
-            this.emit('available', {blob: videoBlob, url: blobUrl});
+            this.emit('available', {blob: videoBlob, url: blobUrl, mime: mime});
         }, false);
         this.recorder.addEventListener('error', (evt) => {
             this.emit('error', {error: evt.error});

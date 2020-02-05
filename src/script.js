@@ -100,7 +100,11 @@ class ThreeApp {
             movie.controls = true;
             this.wrapper.appendChild(movie);
             const anchor = document.createElement('a');
-            anchor.download = 'autogeneration.webm';
+            if(data.mime === 'video/mp4'){
+                anchor.download = 'autogeneration.mp4';
+            }else{
+                anchor.download = 'autogeneration.webm';
+            }
             anchor.href = data.url;
             anchor.textContent = 'download';
             this.wrapper.appendChild(anchor);
